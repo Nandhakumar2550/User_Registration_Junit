@@ -1,6 +1,9 @@
 package org.example;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class UserRegistrationTest {
@@ -74,4 +77,14 @@ public class UserRegistrationTest {
                 "Abcdef1@" // valid password
         ));
     }
+        // UC11
+        @ParameterizedTest
+        @ValueSource(strings = {
+                "abc@yahoo.com",
+                "abc.xyz@bl.co.in",
+                "user@gmail.com"
+        })
+        void testMultipleEmails(String email) {
+            assertTrue(user.validateEmail(email)); // validate multiple emails
+        }
 }

@@ -43,4 +43,11 @@ public class UserRegistrationTest {
         assertTrue(user.validatePasswordRule2("Abcdefgh")); // has uppercase
         assertFalse(user.validatePasswordRule2("abcdefgh")); // no uppercase
     }
+    // UC7
+    @Test
+    void testPasswordRule3() {
+        assertTrue(user.validatePasswordRule3("abcd1234")); // has number
+        assertFalse(user.validatePasswordRule3("abcdefgh")); // no number
+    }
+
 }

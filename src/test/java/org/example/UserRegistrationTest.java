@@ -87,4 +87,74 @@ public class UserRegistrationTest {
         void testMultipleEmails(String email) {
             assertTrue(user.validateEmail(email)); // validate multiple emails
         }
+       // UC12
+    @Test
+    void invalidFirstName_ShouldThrowException() {
+
+        UserRegistrationException e = assertThrows(
+                UserRegistrationException.class, // expect exception
+                () -> user.validateFirstNames("na") // invalid input
+        );
+
+        assertEquals(UserRegistrationException.ExceptionType.INVALID_FIRST_NAME, e.type); // verify type
+    }
+
+
+    @Test
+    void invalidLastName_ShouldThrowException() {
+
+        UserRegistrationException e = assertThrows(
+                UserRegistrationException.class,
+                () -> user.validateLastNames("ku") // invalid input
+        );
+
+        assertEquals(UserRegistrationException.ExceptionType.INVALID_LAST_NAME, e.type);
+    }
+
+
+    @Test
+    void invalidEmail_ShouldThrowException() {
+
+        UserRegistrationException e = assertThrows(
+                UserRegistrationException.class,
+                () -> user.validateEmails("abc@.com") // invalid email
+        );
+
+        assertEquals(UserRegistrationException.ExceptionType.INVALID_EMAIL, e.type);
+    }
+
+
+    @Test
+    void invalidMobile_ShouldThrowException() {
+
+        UserRegistrationException e = assertThrows(
+                UserRegistrationException.class,
+                () -> user.validateMobiles("919919819801") // invalid mobile
+        );
+
+        assertEquals(UserRegistrationException.ExceptionType.INVALID_MOBILE, e.type);
+    }
+
+
+    @Test
+    void invalidPassword_ShouldThrowException() {
+
+        UserRegistrationException e = assertThrows(
+                UserRegistrationException.class,
+                () -> user.validatePassword("abcdef") // invalid password
+        );
+
+        assertEquals(UserRegistrationException.ExceptionType.INVALID_PASSWORD, e.type);
+    }
+
+
+    @Test
+    void validInputs_ShouldReturnTrue() throws UserRegistrationException {
+
+        assertTrue(user.validateFirstName("Nandha")); // valid first name
+        assertTrue(user.validateLastName("Kumar")); // valid last name
+        assertTrue(user.validateEmail("abc.xyz@bl.co.in")); // valid email
+        assertTrue(user.validateMobile("91 9919819801")); // valid mobile
+        assertTrue(user.validatePassword("Abcdef1@")); // valid password
+    }
 }

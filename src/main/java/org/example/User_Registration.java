@@ -59,4 +59,78 @@ public class User_Registration {
 
         return first && last && mail && mob && pass; // return true only if all validations pass
     }
+    // UC12 - First Name Validation
+    public boolean validateFirstNames(String firstName) throws UserRegistrationException {
+
+        String regex = "^[A-Z][a-zA-Z]{2,}$"; // define rule for first name
+
+        if (Pattern.matches(regex, firstName)) { // check if input matches regex
+            return true; // return true if valid
+        } else {
+            throw new UserRegistrationException(
+                    UserRegistrationException.ExceptionType.INVALID_FIRST_NAME, // set error type
+                    "Invalid First Name" // error message
+            ); // throw exception if invalid
+        }
+    }
+
+    // Last Name Validation
+    public boolean validateLastNames(String lastName) throws UserRegistrationException {
+
+        String regex = "^[A-Z][a-zA-Z]{2,}$"; // define rule
+
+        if (Pattern.matches(regex, lastName)) { // validate last name
+            return true; // valid
+        } else {
+            throw new UserRegistrationException(
+                    UserRegistrationException.ExceptionType.INVALID_LAST_NAME,
+                    "Invalid Last Name"
+            ); // throw exception
+        }
+    }
+
+    // Email Validation
+    public boolean validateEmails(String email) throws UserRegistrationException {
+
+        String regex = "^[a-zA-Z0-9]+([._+-]?[a-zA-Z0-9]+)*@[a-zA-Z0-9]+\\.[a-zA-Z]{2,}(\\.[a-zA-Z]{2,})?$";
+
+        if (Pattern.matches(regex, email)) { // validate email
+            return true;
+        } else {
+            throw new UserRegistrationException(
+                    UserRegistrationException.ExceptionType.INVALID_EMAIL,
+                    "Invalid Email"
+            ); // throw exception
+        }
+    }
+
+    // Mobile Validation
+    public boolean validateMobiles(String mobile) throws UserRegistrationException {
+
+        String regex = "^[0-9]{2} [0-9]{10}$"; // define rule
+
+        if (Pattern.matches(regex, mobile)) { // validate mobile
+            return true;
+        } else {
+            throw new UserRegistrationException(
+                    UserRegistrationException.ExceptionType.INVALID_MOBILE,
+                    "Invalid Mobile"
+            ); // throw exception
+        }
+    }
+
+    // Password Validation (All rules combined)
+    public boolean validatePassword(String password) throws UserRegistrationException {
+
+        String regex = "^(?=.*[A-Z])(?=.*[0-9])(?=[^@#$%^&+=!]*[@#$%^&+=!][^@#$%^&+=!]*$).{8,}$";
+
+        if (Pattern.matches(regex, password)) { // validate password
+            return true;
+        } else {
+            throw new UserRegistrationException(
+                    UserRegistrationException.ExceptionType.INVALID_PASSWORD,
+                    "Invalid Password"
+            ); // throw exception
+        }
+    }
 }

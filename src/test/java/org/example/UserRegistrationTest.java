@@ -157,4 +157,61 @@ public class UserRegistrationTest {
         assertTrue(user.validateMobile("91 9919819801")); // valid mobile
         assertTrue(user.validatePassword("Abcdef1@")); // valid password
     }
+
+//UC-13
+
+    // FIRST NAME
+    @Test
+    void validFirstName_ShouldReturnTrue() {
+        assertTrue(user.firstNameValidator.validate("Nandha")); // valid
+    }
+
+    @Test
+    void invalidFirstName_ShouldReturnFalse() {
+        assertFalse(user.firstNameValidator.validate("na")); // invalid
+    }
+
+    // LAST NAME
+    @Test
+    void validLastName_ShouldReturnTrue() {
+        assertTrue(user.lastNameValidator.validate("Kumar"));
+    }
+
+    @Test
+    void invalidLastName_ShouldReturnFalse() {
+        assertFalse(user.lastNameValidator.validate("ku"));
+    }
+
+    // EMAIL
+    @Test
+    void validEmail_ShouldReturnTrue() {
+        assertTrue(user.emailValidator.validate("abc.xyz@bl.co.in"));
+    }
+
+    @Test
+    void invalidEmail_ShouldReturnFalse() {
+        assertFalse(user.emailValidator.validate("abc@.com"));
+    }
+
+    // MOBILE
+    @Test
+    void validMobile_ShouldReturnTrue() {
+        assertTrue(user.mobileValidator.validate("91 9919819801"));
+    }
+
+    @Test
+    void invalidMobile_ShouldReturnFalse() {
+        assertFalse(user.mobileValidator.validate("919919819801"));
+    }
+
+    //PASSWORD
+    @Test
+    void validPassword_ShouldReturnTrue() {
+        assertTrue(user.passwordValidator.validate("Abcdef1@"));
+    }
+
+    @Test
+    void invalidPassword_ShouldReturnFalse() {
+        assertFalse(user.passwordValidator.validate("abcdef"));
+    }
 }

@@ -59,6 +59,10 @@ public class User_Registration {
 
         return first && last && mail && mob && pass; // return true only if all validations pass
     }
+
+
+
+
     // UC12 - First Name Validation
     public boolean validateFirstNames(String firstName) throws UserRegistrationException {
 
@@ -133,4 +137,38 @@ public class User_Registration {
             ); // throw exception
         }
     }
+
+
+
+
+    //UC13
+
+    UserValidation firstNameValidator = (firstName) -> {
+        String regex = "^[A-Z][a-zA-Z]{2,}$"; // define rule for first name
+        return Pattern.matches(regex, firstName); // validate using regex
+    };
+
+
+    UserValidation lastNameValidator = (lastName) -> {
+        String regex = "^[A-Z][a-zA-Z]{2,}$"; // define rule
+        return Pattern.matches(regex, lastName); // validate last name
+    };
+
+
+    UserValidation emailValidator = (email) -> {
+        String regex = "^[a-zA-Z0-9]+([._+-]?[a-zA-Z0-9]+)*@[a-zA-Z0-9]+\\.[a-zA-Z]{2,}(\\.[a-zA-Z]{2,})?$";
+        return Pattern.matches(regex, email); // validate email
+    };
+
+
+    UserValidation mobileValidator = (mobile) -> {
+        String regex = "^[0-9]{2} [0-9]{10}$"; // country code + space + 10 digits
+        return Pattern.matches(regex, mobile); // validate mobile
+    };
+
+
+    UserValidation passwordValidator = (password) -> {
+        String regex = "^(?=.*[A-Z])(?=.*[0-9])(?=[^@#$%^&+=!]*[@#$%^&+=!][^@#$%^&+=!]*$).{8,}$";
+        return Pattern.matches(regex, password); // validate password
+    };
 }

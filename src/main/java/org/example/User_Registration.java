@@ -24,4 +24,9 @@ public class User_Registration {
         String regex = "^[0-9]{2} [0-9]{10}$"; // country code + space + 10 digits
         return Pattern.matches(regex, mobile); // validate mobile number
     }
+    // UC5
+    public boolean validatePasswordRule1(String password) {
+        String regex = "^.{8,}$"; // minimum 8 characters
+        return Pattern.matches(regex, password); // validate length
+    }
 }

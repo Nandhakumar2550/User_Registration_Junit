@@ -31,4 +31,11 @@ public class UserRegistrationTest {
         assertTrue(user.validateMobile("91 9919819801")); // valid mobile
         assertFalse(user.validateMobile("919919819801")); // invalid mobile
     }
+    // UC5
+    @Test
+    void testPasswordRule1() {
+        assertTrue(user.validatePasswordRule1("abcdefgh")); // valid length
+        assertFalse(user.validatePasswordRule1("abc")); // invalid
+    }
+
 }

@@ -55,4 +55,11 @@ public class UserRegistrationTest {
         assertTrue(user.validatePasswordRule4("abcde@12")); // exactly one special char
         assertFalse(user.validatePasswordRule4("abc@@123")); // invalid
     }
+    // UC9
+    @Test
+    void testEmailSamples() {
+        assertTrue(user.validateEmail("abc@yahoo.com")); // sample 1
+        assertTrue(user.validateEmail("abc-100@yahoo.com")); // sample 2
+        assertTrue(user.validateEmail("abc.100@yahoo.com")); // sample 3
+    }
 }

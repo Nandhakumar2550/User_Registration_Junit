@@ -19,4 +19,10 @@ public class UserRegistrationTest {
         assertTrue(user.validateLastName("Kumar")); // valid
         assertFalse(user.validateLastName("ku")); // invalid
     }
+    // UC3
+    @Test
+    void testEmail() {
+        assertTrue(user.validateEmail("abc.xyz@bl.co.in")); // valid email
+        assertFalse(user.validateEmail("abc@.com")); // invalid email
+    }
 }

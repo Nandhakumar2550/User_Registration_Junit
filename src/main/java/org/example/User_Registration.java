@@ -14,4 +14,9 @@ public class User_Registration {
         String regex = "^[A-Z][a-zA-Z]{2,}$"; // define same rule for last name
         return Pattern.matches(regex, lastName); // validate last name using regex
     }
+    // UC3
+    public boolean validateEmail(String email) {
+        String regex = "^[a-zA-Z0-9]+([._+-]?[a-zA-Z0-9]+)*@[a-zA-Z0-9]+\\.[a-zA-Z]{2,}(\\.[a-zA-Z]{2,})?$";
+        return Pattern.matches(regex, email); // check email format
+    }
 }

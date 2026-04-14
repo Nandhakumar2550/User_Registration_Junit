@@ -19,4 +19,9 @@ public class User_Registration {
         String regex = "^[a-zA-Z0-9]+([._+-]?[a-zA-Z0-9]+)*@[a-zA-Z0-9]+\\.[a-zA-Z]{2,}(\\.[a-zA-Z]{2,})?$";
         return Pattern.matches(regex, email); // check email format
     }
+    // UC4
+    public boolean validateMobile(String mobile) {
+        String regex = "^[0-9]{2} [0-9]{10}$"; // country code + space + 10 digits
+        return Pattern.matches(regex, mobile); // validate mobile number
+    }
 }

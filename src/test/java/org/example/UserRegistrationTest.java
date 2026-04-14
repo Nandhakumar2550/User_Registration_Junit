@@ -25,4 +25,10 @@ public class UserRegistrationTest {
         assertTrue(user.validateEmail("abc.xyz@bl.co.in")); // valid email
         assertFalse(user.validateEmail("abc@.com")); // invalid email
     }
+    // UC4
+    @Test
+    void testMobile() {
+        assertTrue(user.validateMobile("91 9919819801")); // valid mobile
+        assertFalse(user.validateMobile("919919819801")); // invalid mobile
+    }
 }

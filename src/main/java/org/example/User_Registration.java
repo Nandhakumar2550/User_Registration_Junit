@@ -29,4 +29,9 @@ public class User_Registration {
         String regex = "^.{8,}$"; // minimum 8 characters
         return Pattern.matches(regex, password); // validate length
     }
+    // UC6
+    public boolean validatePasswordRule2(String password) {
+        String regex = "^(?=.*[A-Z]).{8,}$"; // at least 1 uppercase letter
+        return Pattern.matches(regex, password); // validate uppercase
+    }
 }

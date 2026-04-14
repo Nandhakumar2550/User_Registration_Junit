@@ -37,5 +37,10 @@ public class UserRegistrationTest {
         assertTrue(user.validatePasswordRule1("abcdefgh")); // valid length
         assertFalse(user.validatePasswordRule1("abc")); // invalid
     }
-
+    // UC6
+    @Test
+    void testPasswordRule2() {
+        assertTrue(user.validatePasswordRule2("Abcdefgh")); // has uppercase
+        assertFalse(user.validatePasswordRule2("abcdefgh")); // no uppercase
+    }
 }

@@ -49,5 +49,10 @@ public class UserRegistrationTest {
         assertTrue(user.validatePasswordRule3("abcd1234")); // has number
         assertFalse(user.validatePasswordRule3("abcdefgh")); // no number
     }
-
+    // UC8
+    @Test
+    void testPasswordRule4() {
+        assertTrue(user.validatePasswordRule4("abcde@12")); // exactly one special char
+        assertFalse(user.validatePasswordRule4("abc@@123")); // invalid
+    }
 }

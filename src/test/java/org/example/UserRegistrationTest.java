@@ -62,4 +62,16 @@ public class UserRegistrationTest {
         assertTrue(user.validateEmail("abc-100@yahoo.com")); // sample 2
         assertTrue(user.validateEmail("abc.100@yahoo.com")); // sample 3
     }
+
+    // UC10
+    @Test
+    void testFullValidation() {
+        assertTrue(user.validateUser(
+                "Nandha", // valid first name
+                "Kumar", // valid last name
+                "abc.xyz@bl.co.in", // valid email
+                "91 9919819801", // valid mobile
+                "Abcdef1@" // valid password
+        ));
+    }
 }

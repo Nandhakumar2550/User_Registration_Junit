@@ -44,4 +44,19 @@ public class User_Registration {
         String regex = "^(?=[^@#$%^&+=!]*[@#$%^&+=!][^@#$%^&+=!]*$).{8,}$"; // exactly 1 special char
         return Pattern.matches(regex, password); // validate special character rule
     }
+    // UC10 (FULL VALIDATION)
+    public boolean validateUser(String firstName, String lastName, String email, String mobile, String password) {
+
+        boolean first = validateFirstName(firstName); // call first name validation
+        boolean last = validateLastName(lastName); // call last name validation
+        boolean mail = validateEmail(email); // call email validation
+        boolean mob = validateMobile(mobile); // call mobile validation
+
+        boolean pass = validatePasswordRule1(password) && // check rule1
+                validatePasswordRule2(password) && // check rule2
+                validatePasswordRule3(password) && // check rule3
+                validatePasswordRule4(password);   // check rule4
+
+        return first && last && mail && mob && pass; // return true only if all validations pass
+    }
 }

@@ -13,4 +13,10 @@ public class UserRegistrationTest {
         assertTrue(user.validateFirstName("Nandha")); // valid case
         assertFalse(user.validateFirstName("na")); // invalid case
     }
+    // UC2
+    @Test
+    void testLastName() {
+        assertTrue(user.validateLastName("Kumar")); // valid
+        assertFalse(user.validateLastName("ku")); // invalid
+    }
 }
